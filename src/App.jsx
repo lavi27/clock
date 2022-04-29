@@ -3,10 +3,15 @@ import { useState, useEffect } from 'react';
 
 export default function App() {
   const [time, setTime] = useState({
+    yar: new Date().getFullYear(),
+    mon: new Date().getMonth(),
+    day: new Date().getDate(),
     hou: new Date().getHours(),
     min: new Date().getMinutes(),
     sec: new Date().getSeconds()
   });
+
+  const [mode, setMode] = useState(1);
 
   useEffect(() => {
     setInterval(() => {
@@ -14,7 +19,7 @@ export default function App() {
         yar: new Date().getFullYear(),
         mon: new Date().getMonth(),
         day: new Date().getDate(),
-        hou: new Date().getHours(),
+        hou: new Date().getHours() % 12,
         min: new Date().getMinutes(),
         sec: new Date().getSeconds()
       });
@@ -29,21 +34,29 @@ export default function App() {
       </header>
 
       <main>
-        <div className='calendar'>
-          <span>{time.yar}</span>
-          <span>{time.mon + 1}</span>
-          <span>{time.day}</span>
-        </div>
+        <div className='ui_wrap'>
+          <div className='ui_left'>
+            <div className='calendar'>
+              <span>{time.yar}</span>
+              <span>{time.mon + 1}</span>
+              <span>{time.day}</span>
+            </div>
 
-        <div className='degitalClock'>
-          <span>{time.hou}</span>
-          <span>{time.min}</span>
-          <span>{time.sec}</span>
+            <div className='degitalClock'>
+              <span>{(time.hou !== 0) ? time.hou : 12}</span>
+              <span>{time.min}</span>
+              <span>{time.sec}</span>
+            </div>
+          </div>
+          <div className='ui_right'>
+            <div className='mode'>{mode}</div>
+            <input className='setMode' ></input>
+          </div>
         </div>
 
         <div className='analogClock'>
           <div className='hands'>
-            <div className='hourHand' style={{transform: `rotate(${time.hou * 15 + 180}deg)`}}></div>
+            <div className='hourHand' style={{transform: `rotate(${time.hou * 30 + 180}deg)`}}></div>
             <div className='minuteHand' style={{transform: `rotate(${time.min * 6 + 180}deg)`}}></div>
             <div className='secondHand' style={{transform: `rotate(${time.sec * 6 + 180}deg)`}}></div>
           </div>

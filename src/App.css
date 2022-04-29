@@ -83,6 +83,23 @@ main {
   transform-origin : 1px 1px;
 }
 
+.ui_wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui_left {
+  margin-right: 700px;
+}
+
+.ui_right {
+  margin-right: 700px;
+}
+
 .degitalClock,
 .calendar {
   display: flex;
@@ -97,10 +114,6 @@ main {
   font-size: 12px;
 }
 
-.degitalClock {
-  margin-bottom: 40px;
-}
-
 .calendar {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }

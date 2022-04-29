@@ -43,9 +43,9 @@ export default function App() {
 
         <div className='analogClock'>
           <div className='hands'>
-            <div className='hourHand' style={{transform: `rotate(${(time.hou + time.min/60 + time.sec/3600) * 15}deg)`}}></div>
-            <div className='minuteHand' style={{transform: `rotate(${(time.min + time.sec/60) * 6}deg)`}}></div>
-            <div className='secondHand' style={{transform: `rotate(${time.sec * 6}deg)`}}></div>
+            <div className='hourHand' style={{transform: `rotate(${time.hou * 15 + 180}deg)`}}></div>
+            <div className='minuteHand' style={{transform: `rotate(${time.min * 6 + 180}deg)`}}></div>
+            <div className='secondHand' style={{transform: `rotate(${time.sec * 6 + 180}deg)`}}></div>
           </div>
         </div>
       </main>
